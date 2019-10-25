@@ -23,12 +23,14 @@ def decodeValue(population,lowerBound,upperBound):
 	return np.asarray(temp)
 
 #### [x,y] , x and y are list
-##population = np.array([[[1,0,1,0,0,1,1,0],[1,0,0,0,0,0,1,1,1]]])
-##print(decodeValue(population, np.array([-20]), np.array([20])))
+#population = np.array([[[1,0,1,0,0,1,1,0],[1,0,0,0,0,0,1,1,1]]])
+#print(decodeValue(population, np.array([-20]), np.array([20])))
 
-##population = np.array([[[1,0,1,0,0,1,1,0],[1,0,0,0,0,0,1,1,1]],[[1,0,1,1,1,1,1,1],[1,0,0,0,0,0,0,0,0]]])
-##print(decodeValue(population, np.array([-20,0]), np.array([20,10])))
+#population = np.array([[[1,0,1,0,0,1,1,0],[1,0,0,0,0,0,1,1,1]],[[1,0,1,1,1,1,1,1],[1,0,0,0,0,0,0,0,0]]])
+#print(decodeValue(population, np.array([-20,0]), np.array([20,10])))
 
+#population = np.array([[[1,0,1,0,0,1,1,0],[1,0,0,0,0,0,1,1,1],[1,0,1,0,0,1,1,0]],[[1,0,0,0,0,0,1,1,1],[1,0,1,1,1,1,1,1],[1,0,0,0,0,0,0,0,0]]])
+#print(decodeValue(population, np.array([-20,0]), np.array([20,10])))
 
 
 

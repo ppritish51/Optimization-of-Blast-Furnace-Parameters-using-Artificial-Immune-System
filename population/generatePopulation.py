@@ -1,9 +1,11 @@
 import numpy as np
 
-def createPopulation(bits=10,count=100):
+def createPopulation(count=100,bits=10,dimension=1):
+	if dimension == 1:
+		x = np.random.rand(count,bits)	
+		x[x>=0.5] = 1
+		x[x< 0.5] = 0
 
-	x = np.random.random(count,bits)	
-	x[x>=0.5] = 1
-	x[x< 0.5] = 0
-
-	return x
+		return np.array([x])
+	if dimension==2:
+		raise ValueError('Need Implementation')

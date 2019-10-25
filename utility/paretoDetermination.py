@@ -16,7 +16,7 @@ def pareto(population,variables,solutions,numObjectives=1,objectives=['min'],low
 	DNF  = [np.array([]) for i in range(dimension)]
 	NDNF = [np.array([]) for i in range(dimension)] 
 
-	n = len(output)
+	n = len(solutions)
 	for i in range(n):
 		for j in range(n):
 			if i ==j:
