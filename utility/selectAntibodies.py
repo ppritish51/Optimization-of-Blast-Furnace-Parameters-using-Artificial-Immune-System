@@ -10,5 +10,5 @@ def selectFittestAntibodies(antibodies,fitness,q=None,N=None):
 
 	final = [antibodies[i] for i in temp]
 	if N ==None:
-		N = 10
+		N = 2
 	return final*N 

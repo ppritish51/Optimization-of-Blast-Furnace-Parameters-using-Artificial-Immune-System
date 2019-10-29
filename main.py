@@ -42,6 +42,9 @@ Parameters
 antibodies,fitness,q=None,N=None
 """
 selectedAntibodies = selectFittestAntibodies(DB,fitness)
-print(selectedAntibodies)
+print(selectedAntibodies[0],len(selectedAntibodies))
+
+mutatedAntibody = mutate(selectedAntibodies,antigen)
+print(mutatedAntibody[0],len(mutatedAntibody))
 
 
