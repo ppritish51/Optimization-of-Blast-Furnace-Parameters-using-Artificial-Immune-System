@@ -14,8 +14,8 @@ def pareto(variables,solutions,objectives):
 
 	ND  = []
 	D   = []
-	#DNF  = []
-	#NDNF = [] 
+	D_sol  = []
+	ND_sol = [] 
 
 	n = len(variables)
 	for i in range(n):
@@ -33,6 +33,7 @@ def pareto(variables,solutions,objectives):
 			pass
 		else:
 			ND.append(variables[i])
+			ND_sol.append(solutions[i])
 
 	ND = np.array(ND)
 
@@ -41,8 +42,9 @@ def pareto(variables,solutions,objectives):
 			pass
 		else:
 			D.append(i)
+			D_sol.append(i)
 
-	return ND,np.array(D)
+	return ND,np.array(D),ND_sol,D_sol
 
 
 

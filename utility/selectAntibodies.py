@@ -1,4 +1,4 @@
-
+import numpy as np
 
 def selectFittestAntibodies(antibodies,fitness,q=None,N=None):
 	n = len(antibodies)
@@ -10,5 +10,5 @@ def selectFittestAntibodies(antibodies,fitness,q=None,N=None):
 
 	final = [antibodies[i] for i in temp]
 	if N ==None:
-		N = 2
-	return final*N 
+		N = 5
+	return np.array(final*N )

@@ -1,11 +1,11 @@
 import pandas as pd 
 
 
-def readCsv():
+def readCsv(filename):
 	if __name__ == '__main__':
-		df = pd.read_csv('../data/data.csv')
+		df = pd.read_csv('../data/'+filename)
 	else:
-		df = pd.read_csv('./data/data.csv')
+		df = pd.read_csv('./data/'+filename)
 
 	return df 
 
