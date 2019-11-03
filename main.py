@@ -16,12 +16,12 @@ variables, solutions = getVariableObjective(df)
 
 
 
-for i in range(10):
-	print('GEN {0}'.format(i))
+for i in range(100):
+	print('GEN {0}'.format(i+1))
 	ND,D,ND_sol,D_sol = pareto(variables,solutions,['min','min'])
 	NDB,DB = encodeValue(ND,20),encodeValue(D,20)
 
-	print(np.array(NDB).shape,np.array(DB).shape)
+	#print(np.array(NDB).shape,np.array(DB).shape)
 	"""
 	NDB : Antigens
 	DB  : Antibodies
@@ -41,7 +41,7 @@ for i in range(10):
 	#print(antigen)
 
 	fitness = np.array(getFitness(DB,antigen,2))
-	#print(fitness)
+	print('best fitness',max(fitness))
 
 	"""
 	Parameters
@@ -58,7 +58,7 @@ for i in range(10):
 
 
 
-	print(decodedArr.shape,np.array(D).shape)
+	#print(decodedArr.shape,np.array(D).shape)
 
 
 	variables = np.concatenate((decodedArr,np.array(D)))
