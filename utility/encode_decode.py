@@ -32,7 +32,7 @@ def getSolution(arr,variables,solutions,IndexOfSolutionToChoose,n,numSolutions):
 	return final
 
 
-def decodeAndGetSolution(arr,variables,solutions):
+def decodeAndGetSolution(arr,variables,solutions,minVariable,maxVariable):
 
 	n = len(arr)
 	numVariables = len(arr[0])
@@ -43,9 +43,21 @@ def decodeAndGetSolution(arr,variables,solutions):
 	IndexOfSolutionToChoose = getTwoNearestPointIndices(decodedArr, variables, solutions)
 
 	nextGenSolution = getSolution(arr, variables, solutions,IndexOfSolutionToChoose, n,numSolutions)
-	
-	return np.array(decodedArr),np.array(nextGenSolution)
-		
+	"""finaldecodedArr = []
+	finalNextGenSOlutions = []
+
+	for i,z in zip(decodedArr,nextGenSolution):
+		flag = True
+		for j in range(len(i)):
+			if not minVariable[j]<=i[j]<=maxVariable[j]:
+				flag = False
+		if flag:	
+			finaldecodedArr.append(i)
+			finalNextGenSOlutions.append(z)
+
+	print('fsafgas',np.array(finaldecodedArr).shape,np.array(finaldecodedArr*len(variables[0])).shape)
+	return np.array(finaldecodedArr*(len(variables)//len(finaldecodedArr) )),np.array(finalNextGenSOlutions * (len(variables)//len(finaldecodedArr) ))"""
+	return  np.array(decodedArr),np.array(nextGenSolution)
 
 
 def decode(arr,n,numVariables):

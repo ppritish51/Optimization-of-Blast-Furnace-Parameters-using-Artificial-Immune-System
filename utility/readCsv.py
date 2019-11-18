@@ -14,7 +14,7 @@ def getVariableObjective(df):
 	variables  = df[[col for col in cols if 'y' in col]].values
 	objectives = df[[col for col in cols if 'f' in col]].values
 
-	return variables,objectives
+	return variables,objectives,variables.min(axis=0),variables.max(axis=0)
 
 
 

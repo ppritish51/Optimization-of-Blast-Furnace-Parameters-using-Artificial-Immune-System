@@ -37,12 +37,12 @@ def pareto(variables,solutions,objectives):
 
 	ND = np.array(ND)
 
-	for i in variables:
+	for i,j in zip(variables,solutions):
 		if i in ND:
 			pass
 		else:
 			D.append(i)
-			D_sol.append(i)
+			D_sol.append(j)
 
 	return ND,np.array(D),ND_sol,D_sol
 

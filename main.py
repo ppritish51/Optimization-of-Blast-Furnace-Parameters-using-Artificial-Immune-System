@@ -4,24 +4,29 @@ import random
 
 from utility.readCsv import readCsv, getVariableObjective
 from utility.paretoDetermination import pareto
-from utility.plot import plotPareto
+from utility.plot import plotFitness
 from utility.encode_decode import encodeValue,decodeAndGetSolution
 from utility.fitness import getFitness
 from utility.selectAntibodies import selectFittestAntibodies
 from utility.mutation import mutate
 
 
-df = readCsv("data2.csv")
-variables, solutions = getVariableObjective(df)
+df = readCsv("booth.csv")
+variables, solutions, minVariable,maxVariable = getVariableObjective(df)
 
 
+def movingaverage(interval, window_size):
+	window = np.ones(int(window_size))/float(window_size)
+	return np.convolve(interval, window, 'same')
 
-for i in range(100):
+best_fitness=[]
+for i in range(30):
 	print('GEN {0}'.format(i+1))
-	ND,D,ND_sol,D_sol = pareto(variables,solutions,['min','min'])
+	ND,D,ND_sol,D_sol = pareto(variables,solutions,['min'])
 	NDB,DB = encodeValue(ND,20),encodeValue(D,20)
 
 	#print(np.array(NDB).shape,np.array(DB).shape)
+	#print(np.array(NDB))
 	"""
 	NDB : Antigens
 	DB  : Antibodies
@@ -42,26 +47,27 @@ for i in range(100):
 
 	fitness = np.array(getFitness(DB,antigen,2))
 	print('best fitness',max(fitness))
+	best_fitness.append(max(fitness))
 
 	"""
 	Parameters
 	--------------------------------
 	antibodies,fitness,q=None,N=None
 	"""
-	selectedAntibodies = selectFittestAntibodies(DB,fitness)
+	selectedAntibodies = selectFittestAntibodies(DB,fitness,len(variables)-len(D))
 	#print(selectedAntibodies[4:8],len(selectedAntibodies))
 
 	mutatedAntibody = mutate(selectedAntibodies,antigen)
 	#print(mutatedAntibody[4:8],len(mutatedAntibody))
 
-	decodedArr,nextGenSolution = decodeAndGetSolution(mutatedAntibody,variables,solutions)
+	decodedArr,nextGenSolution = decodeAndGetSolution(mutatedAntibody,variables,solutions,minVariable,maxVariable)
 
 
-
-	#print(decodedArr.shape,np.array(D).shape)
+	#print(nextGenSolution.shape,np.array(D_sol).shape)
 
 
 	variables = np.concatenate((decodedArr,np.array(D)))
 	solutions = np.concatenate((nextGenSolution,np.array(D_sol)))
 
 
+plotFitness(movingaverage(best_fitness,3)[:-1],"booth.png")
