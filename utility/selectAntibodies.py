@@ -10,6 +10,6 @@ def selectFittestAntibodies(antibodies,fitness,AlreadySize,q=None,N=None):
 
 	final = [antibodies[i] for i in temp]
 	if N ==None:
-		N = 4
+		N = 10
 	
-	return np.array(final*(N))[:100]
+	return np.array(final*(N))[:200]

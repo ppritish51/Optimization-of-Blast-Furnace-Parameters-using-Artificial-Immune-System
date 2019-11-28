@@ -16,3 +16,12 @@ def plotFitness(fitness,name='fitness.png'):
 
 #solution = np.array([[0,1],[1,1]])
 #plotPareto(solution)
+
+def plotPareto(solution,name="pareto.png"):
+	if solution.shape[1] ==2:
+		plt.scatter(solution[:,0],solution[:,1])
+		fig = plt.gcf()
+		if __name__ == '__main__':
+			fig.savefig('./plots/'+name)
+		else:
+			fig.savefig('./utility/plots/'+name)		
