@@ -1,6 +1,5 @@
-# BTP-sem_7-Batch-2020
-Optimization of Blast Furnace Parameters using Artificial Immune System
-
+# Optimization of Blast Furnace Parameters using Artificial Immune System
+### BTP-sem_7-Batch-2020
 
 A blast furnace is a type of metallurgical furnace used for smelting to produce industrial
 metals, generally pig iron, but also others such as lead or copper. Blast refers to the
